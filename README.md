@@ -1,5 +1,7 @@
 # GPT 2.5 Image Flare and Sunburst Demo
 
+[Blog Post] (https://taswar.zeytinsoft.com/gpt-image-2-5-flare-sunburst-for-c-developers/)
+
 A .NET 10 console app demonstrating Azure OpenAI image generation and image editing with two configured deployments: **Flare** for previews and batch work, and **Sunburst** for final-quality assets and product-photo edits.
 
 > **Security:** Never commit API keys or paste real credentials into this README. Supply your own Azure OpenAI resource endpoint and API key through .NET User Secrets or environment variables.
