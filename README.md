@@ -1,10 +1,31 @@
-# GPT 2.5 Image Flare and Sunburst Demo
+# GPT Image 2.5 Flare and Sunburst C# Demo
 
-[Blog Post] (https://taswar.zeytinsoft.com/gpt-image-2-5-flare-sunburst-for-c-developers/)
+![GPT-Image 2.5 Flare and Sunburst for C# Developers](https://taswar.zeytinsoft.com/wp-content/uploads/2026/09/GPT-Image-2.5-Flare-Subburst.png)
+
+[![Build](https://github.com/taswar/GptImage2.5-flare-sunburst-demo/actions/workflows/dotnet.yml/badge.svg)](https://github.com/taswar/GptImage2.5-flare-sunburst-demo/actions/workflows/dotnet.yml)
+![.NET 10](https://img.shields.io/badge/.NET-10-512BD4?logo=dotnet&logoColor=white)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen)](CONTRIBUTING.md)
+
+- 📖 Full walkthrough: [GPT Image 2.5 Flare and Sunburst for C# Developers](https://taswar.zeytinsoft.com/gpt-image-2-5-flare-sunburst-for-c-developers/?utm_source=github&utm_medium=readme&utm_campaign=GptImage2.5-flare-sunburst-demo&utm_content=walkthrough)
+- ⭐ If this sample helps you, star the repo so other .NET developers can find it.
+- 🔁 Related: [MAI-Image-2.6 C# Demo](https://github.com/taswar/MAI-Image-26-Foundry-Demo), which runs the same summer sale banner and mug catalog prompts on Microsoft's image model, and [MAI-Image-2.5-Pro C# Sample](https://github.com/taswar/MAI-Image-2.5-Pro-Sample)
+- For more C# samples using other AI models, see [AI models for C# developers](https://taswar.zeytinsoft.com/foundry-ai-models-csharp/?utm_source=github&utm_medium=readme&utm_campaign=GptImage2.5-flare-sunburst-demo&utm_content=ai-models-hub)
+- For my free ebook on prompt engineering, see [Prompt Engineering for .NET Developers](https://github.com/taswar/PromptEngineeringForDotNetDevelopers)
 
 A .NET 10 console app demonstrating Azure OpenAI image generation and image editing with two configured deployments: **Flare** for previews and batch work, and **Sunburst** for final-quality assets and product-photo edits.
 
 > **Security:** Never commit API keys or paste real credentials into this README. Supply your own Azure OpenAI resource endpoint and API key through .NET User Secrets or environment variables.
+
+## Quick start
+
+```bash
+git clone https://github.com/taswar/GptImage2.5-flare-sunburst-demo.git
+cd GptImage2.5-flare-sunburst-demo
+dotnet user-secrets set "AZURE_AI_ENDPOINT" "https://<your-resource-name>.openai.azure.com/"
+dotnet user-secrets set "AZURE_AI_API_KEY" "<your-resource-api-key>"
+dotnet run
+```
 
 ## Requirements
 
@@ -29,7 +50,7 @@ No separate image-processing package is used. Image-edit calls use .NET's built-
 ## Azure setup and credentials
 
 1. Create or select an Azure OpenAI resource that supports the image models and operations used by this sample.
-2. Deploy the models in Azure AI Foundry/Azure OpenAI. The app currently expects deployment names `gpt-image-2.5-flare` and `gpt-image-2.5-sunburst`. A deployment name is the name assigned to that deployment in Azure; change the constants in `Program.cs` if yours differ.
+2. Deploy the models in Microsoft Foundry/Azure OpenAI. The app currently expects deployment names `gpt-image-2.5-flare` and `gpt-image-2.5-sunburst`. A deployment name is the name assigned to that deployment in Azure; change the constants in `Program.cs` if yours differ.
 3. In the Azure portal or Foundry, copy the resource **Endpoint** and an API key from the resource's **Keys and Endpoint** page. Use the key belonging to the same resource as the endpoint.
 4. Set local secrets from the project directory (replace the placeholders with your own values):
 
@@ -125,7 +146,7 @@ The program runs all five cases sequentially. Generated PNGs are written to the 
 
 ### Case 5 — Virtual try-on: successive photo edits
 
-- Reads `customer-tryon-photo.png` from the current working directory.
+- Reads `customer-tryon-photo.png` from the current working directory. The photo in the repo is AI-generated, not a real customer.
 - Uses the HTTP multipart edit route with Sunburst to recolor the jacket, then edit the background while retaining the prior result.
 - Saves `tryon-navy.png` and `tryon-navy-outdoors.png`.
 
@@ -151,3 +172,7 @@ Deployment names are currently constants in `Program.cs`: `gpt-image-2.5-flare` 
 - Image edit inputs must be supported PNG/JPG files and meet the service's documented size limits.
 - Image generation and edit availability, supported sizes, API versions, latency, and pricing depend on the model deployment and Azure resource configuration. Check the current Azure documentation and your deployment settings.
 - The repository may contain generated PNG outputs after running the sample. Avoid committing customer photos or other private images.
+
+## License
+
+This project is licensed under the MIT License. See [LICENSE](LICENSE).
